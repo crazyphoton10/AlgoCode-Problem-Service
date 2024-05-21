@@ -1,9 +1,12 @@
 const { StatusCodes } = require("http-status-codes");
+const NotImplemented = require("../errors/NotImplemented.error");
 //Create API
-function addProblem(req, res) {
-  return res
-    .status(StatusCodes.NOT_IMPLEMENTED)
-    .json({ msg: "Not Implemented" });
+function addProblem(req, res, next) {
+  try {
+    throw new NotImplemented("addProblem");
+  } catch (error) {
+    next(error);
+  }
 }
 function pingProblemController(req, res) {
   return res.json({ msg: "Problem controller is up" });
