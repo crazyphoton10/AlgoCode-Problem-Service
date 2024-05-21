@@ -9,11 +9,11 @@ function errorHandler(err, req, res, next) {
       error: err.details,
       data: {},
     });
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-    success: "false",
-    message: "Something went wrong",
-    error: err,
-    data: {},
-  });
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      success: "false",
+      message: "Something went wrong",
+      error: err,
+      data: {},
+    });
 }
 module.exports = errorHandler;

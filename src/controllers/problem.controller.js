@@ -12,18 +12,32 @@ function pingProblemController(req, res) {
   return res.json({ msg: "Problem controller is up" });
 }
 function getProblem(req, res) {
-  return res
-    .status(StatusCodes.NOT_IMPLEMENTED)
-    .json({ msg: "Not Implemented" });
+  try {
+    throw new NotImplemented("addProblem");
+  } catch (error) {
+    next(error);
+  }
 }
 function deleteProblem(req, res) {
-  res.status(StatusCodes.NOT_IMPLEMENTED).json({ msg: "Not Implemented" });
+  try {
+    throw new NotImplemented("addProblem");
+  } catch (error) {
+    next(error);
+  }
 }
 function getProblems(req, res) {
-  res.status(StatusCodes.NOT_IMPLEMENTED).json({ msg: "Not Implemented" });
+  try {
+    throw new NotImplemented("addProblem");
+  } catch (error) {
+    next(error);
+  }
 }
 function updateProblem(req, res) {
-  res.status(StatusCodes.NOT_IMPLEMENTED).json({ msg: "Not Implemented" });
+  try {
+    throw new NotImplemented("addProblem");
+  } catch (error) {
+    next(error);
+  }
 }
 
 module.exports = {
