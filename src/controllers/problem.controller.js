@@ -11,28 +11,28 @@ function addProblem(req, res, next) {
 function pingProblemController(req, res) {
   return res.json({ msg: "Problem controller is up" });
 }
-function getProblem(req, res) {
+function getProblem(req, res, next) {
   try {
     throw new NotImplemented("addProblem");
   } catch (error) {
     next(error);
   }
 }
-function deleteProblem(req, res) {
+function deleteProblem(req, res, next) {
   try {
     throw new NotImplemented("addProblem");
   } catch (error) {
     next(error);
   }
 }
-function getProblems(req, res) {
+function getProblems(req, res, next) {
   try {
     throw new NotImplemented("addProblem");
   } catch (error) {
     next(error);
   }
 }
-function updateProblem(req, res) {
+function updateProblem(req, res, next) {
   try {
     throw new NotImplemented("addProblem");
   } catch (error) {
