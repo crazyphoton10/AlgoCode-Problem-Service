@@ -8,14 +8,12 @@ const problemService = new ProblemService(new ProblemRepository());
 async function addProblem(req, res, next) {
   try {
     const newProblem = await problemService.createProblem(req.body);
-    return res
-      .status(StatusCodes.CREATED)
-      .json({
-        success: true,
-        msg: "Successfully created a new problem",
-        error: {},
-        data: newProblem,
-      });
+    return res.status(StatusCodes.CREATED).json({
+      success: true,
+      msg: "Successfully created a new problem",
+      error: {},
+      data: newProblem,
+    });
   } catch (error) {
     next(error);
   }
@@ -37,13 +35,16 @@ function deleteProblem(req, res, next) {
     next(error);
   }
 }
-function getProblems(req, res, next) {
-  try {
-    throw new NotImplemented("addProblem");
-  } catch (error) {
-    next(error);
-  }
+async function getProblems(req, res, next) {
+  const response = await problemService.getAllProblems();
+  return res.status(StatusCodes.OK).json({
+    success: true,
+    msg: "Successfully fetched all problems",
+    error: {},
+    data: response,
+  });
 }
+
 function updateProblem(req, res, next) {
   try {
     throw new NotImplemented("addProblem");
