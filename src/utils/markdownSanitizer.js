@@ -9,7 +9,7 @@ function sanitizeMarkdownContent(markdownContent) {
 
   //Sanitize html
   const sanitizedHtml = sanitizeHtmlLibrary(convertedHtml, {
-    allowedTags: sanitizeHtmlLibrary.defaults.allowedTags,
+    allowedTags: sanitizeHtmlLibrary.defaults.allowedTags.concat(["img"]),
   });
   //Convert sanitized HTML back to markdown
   const sanitizedMarkdown = turndownService.turndown(sanitizedHtml);

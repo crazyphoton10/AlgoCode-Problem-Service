@@ -21,9 +21,15 @@ async function addProblem(req, res, next) {
 function pingProblemController(req, res) {
   return res.json({ msg: "Problem controller is up" });
 }
-function getProblem(req, res, next) {
+async function getProblem(req, res, next) {
   try {
-    throw new NotImplemented("addProblem");
+    const problem = await problemService.getProblem(req.params.id);
+    return res.status(StatusCodes.OK).json({
+      success: true,
+      msg: "Successfully fetched a problem",
+      error: {},
+      data: problem,
+    });
   } catch (error) {
     next(error);
   }

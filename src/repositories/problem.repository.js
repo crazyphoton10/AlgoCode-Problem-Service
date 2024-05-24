@@ -1,3 +1,4 @@
+const NotFound = require("../errors/notFound.error");
 const { Problem } = require("../models");
 //Mongoose ORM query
 class ProblemRepository {
@@ -18,6 +19,19 @@ class ProblemRepository {
     try {
       const problems = await Problem.find({}); //filter on any parameter then add that in {} in Problem.find({})
       return problems;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  async getProblem(id) {
+    try {
+      const problem = await Problem.findById(id); //filter on any parameter then add that in {} in Problem.find({})
+      if (!problem) {
+        throw new NotFound("Problem", id);
+      }
+      return problem;
     } catch (error) {
       console.log(error);
       throw error;
