@@ -1,14 +1,14 @@
 const BaseError = require("./base.error");
 const { StatusCodes } = require("http-status-codes");
 
-class BadReuest extends BaseError {
+class BadRequest extends BaseError {
   constructor(propertyName, details) {
     super(
       "Bad Request",
       StatusCodes.BAD_REQUEST,
       `Invalid structure for ${propertyName} provided`,
-      this.details
+      details
     );
   }
 }
-module.exports = BadReuest;
+module.exports = BadRequest;
