@@ -1,5 +1,6 @@
 const BadRequest = require("../errors/badRequest.error");
 const NotFoundError = require("../errors/notFound.error");
+const logger = require("../config/logger.config");
 const { Problem } = require("../models");
 //Mongoose ORM query
 class ProblemRepository {
@@ -43,6 +44,7 @@ class ProblemRepository {
     try {
       const problem = await Problem.findByIdAndDelete(id); // returns null if couldn't find
       if (!problem) {
+        logger.error(`Problem with id: ${id} not found in the DB`);
         throw new NotFoundError("Problem", id);
       }
       return problem;
